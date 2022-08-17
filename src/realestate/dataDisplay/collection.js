@@ -6,19 +6,8 @@ import keys from '../../rapidAPI.json';
 
 function Collection () {
 
-    let axiosCallResponse = {
-        data:{
-            count: 1,
-            results: [
-                {one:1,
-                two:2},
-                {three:3,
-                four:4}
-            ],
-            ipsem: "lauren",
-            shit: "shit1"
-        }
-    };
+    let axiosCallResponse;
+    let stringifyed={};
 
     const options = {
         method: 'GET',
@@ -29,16 +18,28 @@ function Collection () {
             'X-RapidAPI-Host': keys['X-RapidAPI-Host']
         }
     };
-    // axios.request(options).then(function (response) {
-    //     console.log(response.data);
-    //     axiosCallResponse = response.data;
-    //     console.log("axioscall:" + axiosCallResponse);
-    // }).catch(function (error) {
-    //     console.error(error);
-    // });
+
+    if(axiosCallResponse == null || Object.keys(axiosCallResponse).length === 0) {
+        // console.log(Object.keys(axiosCallResponse).length === 0)
+        // axios.request(options).then(function (response) {
+        //     console.log(response.data);
+        //     axiosCallResponse = response.data;
+        //     console.log("axioscall:" + axiosCallResponse);
+        // }).catch(function (error) {
+        //     console.error(error);
+        // });
+
+        console.log("axios pulls data")
+    }
+    else {
+        stringifyed = JSON.stringify(axiosCallResponse,null,4);
+        console.log("not empty")
+        console.log(stringifyed);
+    }
 
 
-    let stringifyed = JSON.stringify(axiosCallResponse,null,4);
+
+    
     console.log(stringifyed);
 
     return (
@@ -48,7 +49,7 @@ function Collection () {
             <ul>
                 <li>data 1</li>
             </ul>
-            {stringifyed}
+            {/* {stringifyed} */}
         </div>
     )
 }

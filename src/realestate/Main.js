@@ -1,4 +1,5 @@
 import Collection from "./dataDisplay/collection";
+import Parameters from "./paramDisplay/parameterOptions";
 import React from "react";
 
 function Main () {
@@ -6,7 +7,9 @@ function Main () {
         <div>
             main page of it
             axios call
+            <Parameters/>
             <Collection/>
+
         </div>
     )
 }
