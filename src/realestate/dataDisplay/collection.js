@@ -4,7 +4,9 @@ import { useEffect } from 'react';
 import keys from '../../rapidAPI.json';
 
 
-function Collection () {
+function CollectData(props) {
+    alert("CollectData is called");
+    // alert(city + " , " + state + " " + zip + " | " + limit);
 
     let axiosCallResponse;
     let stringifyed={};
@@ -36,20 +38,18 @@ function Collection () {
         console.log("not empty")
         console.log(stringifyed);
     }
-
-
-
-    
     console.log(stringifyed);
+}
 
+function Collection (props) {
+    console.log(props);
+    const submitForAxios=(props)=> {
+        console.log("submitForAxios " + props);
+    }
     return (
         <div>
             collecting some data
             and displaying data here
-            <ul>
-                <li>data 1</li>
-            </ul>
-            {/* {stringifyed} */}
         </div>
     )
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import Collection from "../dataDisplay/collection";
+
 import {useEffect, useState} from 'react';
 
 function parameterOptions () {
@@ -24,28 +26,34 @@ function parameterOptions () {
         const value = e.currentTarget.value;
         setLimit(value);
     }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        Collection
+    }
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>City:</label>
                 <input onChange={handleCity} type="text" id="city" name="city"/>
-                <br/>
-                <label>Zip:</label>
-                <input onChange={handleZip} type="number" id="zip" name="zip"/>
                 <br/>
                 <label>State:</label>
                 <input onChange={handleState} type="text" id="state" name="state"/>
                 <br/>
+                <label>Zip:</label>
+                <input onChange={handleZip} type="number" id="zip" name="zip"/>
+                <br/>
                 <label>Limit:</label>
                 <input onChange={handleLimit} type="number" id="limit" name="limit"/>
                 <br/>
-                <button>Submit</button>
+                <input type="submit" value="Submit"/>
             </form>
             
             {city} <br/>
             {zip} <br/>
             {state} <br/>
             {limit} <br/>
+
+            <Collection city={city} state={state} zip={zip} limit={limit} />
             
 
         </div>
